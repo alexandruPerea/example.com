@@ -6,6 +6,13 @@ error_reporting(E_ALL);*/
 
 //does this get udpated?
 
+[4:17:37 PM] Gabriel Bran: git status
+[4:17:43 PM] Gabriel Bran: git branch
+[4:17:49 PM] Gabriel Bran: git push
+[4:17:52 PM] Gabriel Bran: git pull
+[4:17:56 PM] Gabriel Bran: git commit
+[4:18:17 PM] Gabriel Bran: git checkout
+
 /*
 echo "# delete" >> README.md
 git init
