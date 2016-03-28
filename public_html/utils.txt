@@ -3,3 +3,13 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);*/
 
 //echo htmlspecialchars($addressUpdateXML);
+
+
+/*
+echo "# delete" >> README.md
+git init
+git add public_html
+git commit -m "first commit"
+sudo git remote add origin https://github.com/alexandruPerea/example.com.git
+git push -u origin master
+*/
