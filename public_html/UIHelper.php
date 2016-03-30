@@ -74,11 +74,30 @@ function displayCustomerDetails($custAccount_){
   }
 
   echo '</tr></tbody></table>';
-  echo '<form action="addressCreateInputDetails.php" method="POST">
+  echo '<!--<form action="addressCreateInputDetails.php" method="POST">
           <input type="hidden" name="customerInfo" value="'.base64_encode(serialize($customerInfo)).'">
           <input type="hidden" name="account" value="'.$custAccount_.'">
           <input type="submit" value="Create new address">
-        </form>';
+        </form>-->
+        <div id="addressDetailsContainer">
+          <div id="createAddress" style="display: none">
+            <form action="addressCreate.php" method="POST" target="hidden">
+              <input type="hidden" name="account" value ="'.$custAccount_.'">
+              <input type="hidden" name="customerInfo" value="'.base64_encode(serialize($customerInfo)).'">
+              Location name:<input type="text" name="LocationName">
+              <br>Country/region:<input type="text" name="CountryRegionId">
+              <br>Zip/postal code:<input type="text" name="ZipCode">
+              <br>Street:<input type="text" name="Street">
+              <br>City:<input type="text" name="City">
+              <br>State:<input type="text" name="State">
+              <br>Primary:<input type="checkbox" name="IsPrimary">
+              <br><input type="submit" value="Create new address">
+            </form>
+          </div>
+          <button type="button" name="inputAddressDetails" id="inputAddressDetails" onClick="buildInputForm(this)">Create new address</button>
+          <button type="button" name="cancelInputAddressDetails" id="cancelInputAddressDetails" hidden=true onClick="cancelBuildInputForm(this)">Cancel</button>
+        </div>';
+
   echo '<br><p><u>Contact details</u></p>';
   echo '<table><tbody><tr>';
   if(count($customerInfo->DirParty->DirPartyContactInfoView) == 1){
@@ -91,11 +110,30 @@ function displayCustomerDetails($custAccount_){
     }
   }
   echo '</tr></tbody></table>';
-  echo '<form action="contactCreateInputDetails.php" method="POST">
+  echo '<!--<form action="contactCreateInputDetails.php" method="POST">
       <input type="hidden" name="customerInfo" value="'.base64_encode(serialize($customerInfo)).'">
       <input type="hidden" name="account" value="'.$custAccount_.'">
       <input type="submit" value="Create new contact">
-  </form>';
+  </form>-->
+    <div name="contactDetailsContainer">
+      <div id="createContact" style="display: none">
+        <form action="contactCreate.php" method="POST">
+          <input type="hidden" name="account" value ="'.$custAccount_.'">
+          <input type="hidden" name="customerInfo" value="'.base64_encode(serialize($customerInfo)).'">
+          Contact name:<input type="text" name="ContactName">
+          <br>Contact type:<select name="ContactType" id="ContactType">
+            <option value="Email">Email</option>
+            <option value="Phone">Phone</option>
+          </select>
+          <br>Contact number/address:<input type="text" name="Locator">
+          <br>Primary:<input type="checkbox" name="IsPrimary">
+          <br><input type="submit" value="Create new contact">
+        </form>
+      </div>
+      <button type="button" name="inputContactDetails" id="inputContactDetails" onClick="buildInputForm(this)">Create new contact</button>
+      <button type="button" name="cancelInputContactDetails" id="cancelInputContactDetails" hidden=true onClick="cancelBuildInputForm(this)">Cancel</button>
+    </div>
+  ';
 }
 
 function rediretToCustomerDetails($custAccount_){

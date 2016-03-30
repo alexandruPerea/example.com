@@ -1,5 +1,25 @@
 var globalFormContent;
 
+function cancelBuildInputForm(cancelButton){
+  var createButton = cancelButton.previousSibling.previousSibling;
+  createButton.hidden = false;
+  cancelButton.hidden = true;
+
+  var mainDiv = cancelButton.parentElement;
+  var form = mainDiv.firstElementChild;
+  form.style.display = "none";
+}
+
+function buildInputForm(createButton){
+  var cancelButton = createButton.nextSibling.nextSibling;
+  cancelButton.hidden = false;
+  createButton.hidden = true;
+
+  var mainDiv = createButton.parentElement;
+  var form = mainDiv.firstElementChild;
+  form.style.display = "block";
+}
+
 function enableFields(editButton){
   globalFormContent = editButton.parentElement.innerHTML;
   editButton.hidden = true;
